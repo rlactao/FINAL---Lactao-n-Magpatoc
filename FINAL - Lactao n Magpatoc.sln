@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FINAL - Lactao n Magpatoc", "FINAL - Lactao n Magpatoc.csproj", "{5B31C07D-EF1E-42AD-9F4F-BD1CA77BAF62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B31C07D-EF1E-42AD-9F4F-BD1CA77BAF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B31C07D-EF1E-42AD-9F4F-BD1CA77BAF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B31C07D-EF1E-42AD-9F4F-BD1CA77BAF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B31C07D-EF1E-42AD-9F4F-BD1CA77BAF62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2C87C3F-A48F-4DAF-BC86-A13DE6280210}
+	EndGlobalSection
+EndGlobal

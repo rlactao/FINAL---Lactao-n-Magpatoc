@@ -6,7 +6,7 @@ using Layer.DataAccess;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
 
-namespace Intepro.BusinessLogic
+namespace Student.BusinessLogic
 {
     public class StudentBLL
     {

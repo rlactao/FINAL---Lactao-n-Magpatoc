@@ -1,0 +1,16 @@
+﻿@model StudentBLL
+
+<form asp-controller="Student" asp-action="Edit" method="post">
+    <input type="hidden" name="StudentID" value="@Model.StudentID" />
+    First Name
+    <input type="text" class="form-control" name="Firstname" value="@Model.Firstname" />
+    <span class="text-danger" asp-validation-for="Firstname"></span><br />
+    Last Name
+    <input type="text" class="form-control" name="Lastname" value="@Model.Lastname" />
+    <span class="text-danger" asp-validation-for="Lastname"></span>
+    <br />
+    <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-success">Save Changes</button>
+        <a asp-controller="Student" asp-action="View" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

@@ -27,8 +27,8 @@ namespace Student.Account.BusinessLogic
             while (dr.Read() == true)
             {
                 StudentAccountBLL acct = new StudentAccountBLL();
-                acct.Username = dr["username"].ToString();
-                acct.Password = dr["password"].ToString();
+                acct.Username = dr["Username"].ToString();
+                acct.Password = dr["Password"].ToString();
                 
                 list.Add(acct);
             }

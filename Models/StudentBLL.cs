@@ -86,5 +86,32 @@ namespace Student.BusinessLogic
             dal.Execute();
             dal.Close();
         }
+
+        public List<StudentBLL> Search(string key) 
+        {
+            List<StudentBLL> list = new List<StudentBLL>();
+
+            dal.Open();
+            dal.SetSql("SELECT * FROM Students " +
+                "WHERE FirstName LIKE @key OR LastName LIKE @key ");
+            dal.AddParameter("@key", "%" + key + "%");
+
+            SqlDataReader dr = dal.GetReader();
+
+            while (dr.Read() == true)
+            {
+                StudentBLL s = new StudentBLL();
+                s.StudentID = (int)dr["StudentID"];
+                s.Firstname = dr["FirstName"].ToString();
+                s.Lastname = dr["LastName"].ToString();
+
+                list.Add(s);
+            }
+
+            dr.Close();
+            dal.Close();
+
+            return list;
+        }
     }
 }

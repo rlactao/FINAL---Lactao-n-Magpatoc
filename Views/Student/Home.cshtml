@@ -1,17 +1,22 @@
-﻿@model StudentBLL
+﻿@model StudentAccountBLL
 
-    <div class="container-md mt-3 border">
-        <div class="form-group">
-            <label for="uname">Username</label>
-            <input type="Username" class="form-control" id="" placeholder="Enter username" name="uname">
-            <span class="text-danger" asp-validation-for="Username"></span>
-        </div>
-        <div class="form-group">
-            <label for="Password">Password</label>
-            <input type="Password" class="form-control" id="" placeholder="Enter password" name="password">
-            <span class="text-danger" asp-validation-for="Password"></span>
-        </div>
-        <a asp-controller="Student" asp-action="Login" class="btn btn-primary btn-sm btn-block">
-            Login
-        </a>
-    </div>
+<div class="container">
+    <h3 class="text-success">Welcome students!</h3>
+</div>
+<br />
+
+<div class="form-group">
+    <label for="uname">User name</label>
+    <input type="text" class="form-control" value="" placeholder="Enter username" name="uname">
+    <span class="text-danger" asp-validation-for="Username"></span>
+</div>
+<div class="form-group">
+    <label for="Password">Password</label>
+    <input type="password" class="form-control" value="" placeholder="Enter password" name="password">
+    <span class="text-danger" asp-validation-for="Password"></span>
+</div>
+<div class="col-md-12 text-center">
+    <a asp-controller="Student" asp-action="Login" class="btn btn-primary ">
+        Login
+    </a>
+</div>

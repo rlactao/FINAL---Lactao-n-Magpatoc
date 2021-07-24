@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-using Intepro.BusinessLogic;
+using Student.BusinessLogic;
+using Student.Account.BusinessLogic;
 
 namespace Layer.DataAccess
 {

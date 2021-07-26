@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Student.BusinessLogic
 {
-    public class StudentBLL
+    public class StudentBLL 
     {
         public int StudentID { get; set; }
        

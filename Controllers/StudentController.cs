@@ -12,6 +12,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
     public class StudentController : Controller
     {
         private StudentBLL studbll = new StudentBLL();
+        private StudentAccountBLL studAcctBLL = new StudentAccountBLL();
         public IActionResult Home()
         {
             return View();
@@ -24,7 +25,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
         [HttpPost]
 
-        public IActionResult Home(FormCollection data) 
+        public IActionResult Home(StudentAccountBLL obj) 
         {
             StudentAccountBLL studAcc = new StudentAccountBLL();
             List<StudentAccountBLL> account = studAcc.GetAll();
@@ -33,7 +34,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 
             foreach (StudentAccountBLL item in account)
             {
-                if (data["Username"].ToString().Equals(item.Username) && data["Password"].ToString().Equals(item.Password))
+                if (obj["Username"].ToString().Equals(item.Username) && obj["Password"].ToString().Equals(item.Password))
                     valid = true;
             }
 
@@ -49,14 +50,15 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 
         [HttpPost]
 
-        public IActionResult Add(FormCollection data)
+        public IActionResult Add(StudentBLL obj)
         {
-            StudentBLL s = new StudentBLL();
-            s.Firstname = data["Firstname"].ToString();
-            s.Lastname = data["Lastname"].ToString();
-            s.Add();
-
-            return RedirectToAction("View", "Student");
+            if (ModelState.IsValid)
+            {
+                obj.Add();
+                return RedirectToAction("View");
+            }
+            else
+                return View(obj);
         }
 
         public IActionResult Edit(int id)
@@ -81,7 +83,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 
             return RedirectToAction("List", "Student");
         }
-
+     
         [HttpPost]
         public IActionResult Delete(StudentBLL model)
         {
@@ -89,15 +91,17 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 
             return RedirectToAction("List", "Student");
         }
+        //public IActionResult Search()
+        // {
+        //    List<StudentBLL> view = studbll.GetAll();
 
-
-        [HttpPost]
-        public IActionResult Search(FormCollection data)
-        {
-            StudentBLL studbll = new StudentBLL();
-            List<StudentBLL> searchList = studbll.Search(data["Name"].ToString());
-
-            return View(searchList);
-        }
+       //     return View(view);
+       // }
+        //[HttpGet]
+        //public IActionResult Search(StudentBLL obj)
+       // {
+       //    StudentBLL obj =  studbll.Get(obj)
+       // }
+        
     }
 }

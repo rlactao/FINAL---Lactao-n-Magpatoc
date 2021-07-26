@@ -1,16 +1,21 @@
 ﻿@model List<StudentBLL>
 
-<div class="btn-group btn-block" style="display:inline">
-    <a asp-controller="Student" asp-action="Add" class="btn btn-success btn-sm ">
+<div style="display:inline">
+    <a asp-controller="Student" asp-action="Add" class="btn btn-link fa-pull-left btn-sm ">
         Add Record
     </a>
-    <a asp-controller="Student" asp-action="Search" class="btn btn-success btn-sm ">
-        Search
-    </a>
-    <a asp-controller="Student" asp-action="Home" class="btn btn-light btn-sm ">
+    <a asp-controller="Student" asp-action="Home" class="btn btn-link fa-pull-right btn-sm ">
         Logout
     </a>
+</div>
+<div>
+    <form method="get" asp-controller="Student" asp-action="Search">
+        <input type="search" placeholder="Enter Student name" value="" name="" style="width:300px;"/>
+        <input type="submit" value="" class="btn btn-light"
+    </form>
+</div>
     <br />
+<div class="container">
     <table class="table table-bordered table-sm">
         <thead class="thead-dark">
             <tr>

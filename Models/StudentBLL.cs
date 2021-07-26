@@ -82,7 +82,7 @@ namespace Student.BusinessLogic
         public void Delete()
         {
             dal.Open();
-            dal.SetSql("DELETE Students WHERE StudentID = @is");
+            dal.SetSql("DELETE Students WHERE StudentID = @id");
             dal.AddParameter("@id", StudentID);
             dal.Execute();
             dal.Close();

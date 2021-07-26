@@ -15,34 +15,43 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         private StudentAccountBLL studAcctBLL = new StudentAccountBLL();
         public IActionResult Home()
         {
-            return View();
+            return View(new StudentAccountBLL());
         }
-        public IActionResult View()
+        public IActionResult List()
         {
             List<StudentBLL> view = studbll.GetAll();
 
             return View(view);
         }
+
         [HttpPost]
+        public IActionResult Home(StudentAccountBLL obj)
+        { 
 
-        public IActionResult Home(StudentAccountBLL obj) 
-        {
-            StudentAccountBLL studAcc = new StudentAccountBLL();
-            List<StudentAccountBLL> account = studAcc.GetAll();
-
-            bool valid = false;
-
-            foreach (StudentAccountBLL item in account)
+            if (ModelState.IsValid)
             {
-                if (obj["Username"].ToString().Equals(item.Username) && obj["Password"].ToString().Equals(item.Password))
-                    valid = true;
-            }
+                StudentAccountBLL studAcc = new StudentAccountBLL();
+                List<StudentAccountBLL> account = studAcc.GetAll();
 
-            if (valid)
-                return RedirectToAction("List", "Student");
-           // else
-               // return RedirectToAction("LoginFail", "Student");
+                bool valid = false;
+
+                foreach (StudentAccountBLL item in account)
+                {
+                    if (obj.Username.Equals(item.Username) && obj.Username.Equals(item.Password))
+                        valid = true;
+                    else
+                        valid = false;
+                }
+
+                if (valid)
+                    return RedirectToAction("List", "Student");
+                else
+                    return RedirectToAction("Home", "Student");
+            }
+            else
+                return RedirectToAction("Home", "Student");
         }
+
         public IActionResult Add()
         {
             return View(new StudentBLL());
@@ -55,7 +64,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
             if (ModelState.IsValid)
             {
                 obj.Add();
-                return RedirectToAction("View");
+                return RedirectToAction("List");
             }
             else
                 return View(obj);
@@ -64,13 +73,13 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         public IActionResult Edit(int id)
         {
             if (id <= 0)
-                return RedirectToAction("View", "Student");
+                return RedirectToAction("List", "Student");
 
             StudentBLL studbll = new StudentBLL();
             studbll = studbll.Get(id);
 
             if (studbll.StudentID == 0)
-                return RedirectToAction("View", "Student");
+                return RedirectToAction("List", "Student");
             else
                 return View(studbll);
         }

@@ -19,9 +19,9 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
         public IActionResult List()
         {
-            List<StudentBLL> view = studbll.GetAll();
+            List<StudentBLL> list = studbll.GetAll();
 
-            return View(view);
+            return View(list);
         }
 
         [HttpPost]
@@ -37,7 +37,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 
                 foreach (StudentAccountBLL item in account)
                 {
-                    if (obj.Username.Equals(item.Username) && obj.Username.Equals(item.Password))
+                    if (obj.Username.Equals(item.Username) && obj.Password.Equals(item.Password))
                         valid = true;
                     else
                         valid = false;
@@ -58,7 +58,6 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Add(StudentBLL obj)
         {
             if (ModelState.IsValid)
@@ -85,7 +84,6 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Edit(StudentBLL model)
         {
             model.Edit();

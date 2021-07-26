@@ -88,7 +88,7 @@ namespace Student.BusinessLogic
             dal.Close();
         }
 
-        public List<StudentBLL> GetAll(string key)
+        public List<StudentBLL> Search(string key)
         {
             List<StudentBLL> list = new List<StudentBLL>();
 

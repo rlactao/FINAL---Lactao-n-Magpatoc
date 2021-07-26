@@ -104,14 +104,12 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Search()
+        public IActionResult Search(string key)
         {
-            return new string keyword;
+            List<StudentBLL> list = studbll.Search(key);
+
+            return View(list);
         }
 
-        public void Search([FromBody] string value)
-        {
-
-        }
     }
 }

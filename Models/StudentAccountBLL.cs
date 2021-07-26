@@ -10,6 +10,7 @@ namespace Student.Account.BusinessLogic
 {
     public class StudentAccountBLL
     {
+
         [Required]
         public string Username { get; set; }
         [Required]

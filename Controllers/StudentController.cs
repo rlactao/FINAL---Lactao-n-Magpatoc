@@ -15,35 +15,44 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         private StudentAccountBLL studAcctBLL = new StudentAccountBLL();
         public IActionResult Home()
         {
-            return View();
+            return View(new StudentAccountBLL());
         }
         public IActionResult List()
         {
-            List<StudentBLL> view = studbll.GetAll();
+            List<StudentBLL> list = studbll.GetAll();
 
-            return View(view);
+            return View(list);
         }
         [HttpPost]
-
         public IActionResult Home(StudentAccountBLL obj) 
         {
-            StudentAccountBLL studAcc = new StudentAccountBLL();
-            List<StudentAccountBLL> account = studAcc.GetAll();
-
-            bool valid = false;
-
-            foreach (StudentAccountBLL item in account)
+            if (ModelState.IsValid)
             {
-                if (obj.Username.Equals(item.Username) && obj.Password.Equals(item.Password))
-                    valid = true;
+                StudentAccountBLL studAcc = new StudentAccountBLL();
+                List<StudentAccountBLL> account = studAcc.GetAll();
+
+                bool valid = false;
+
+                foreach (StudentAccountBLL item in account)
+                {
+                    if (obj.Username.Equals(item.Username) && obj.Password.Equals(item.Password))
+                    {
+                        valid = true;
+                        break;
+                    }
+                    else
+                        valid = false;
+                }
+
+                if (valid)
+                    return RedirectToAction("List", "Student");
                 else
-                    valid = false;
+                    return RedirectToAction("Home", "Student");
             }
-            
-            if (valid)
-                return RedirectToAction("List", "Student");
             else
-               return RedirectToAction("Home", "Student");
+            {
+                return RedirectToAction("Home", "Student");
+            }
         }
         public IActionResult Add()
         {
@@ -51,7 +60,6 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Add(StudentBLL obj)
         {
             if (ModelState.IsValid)

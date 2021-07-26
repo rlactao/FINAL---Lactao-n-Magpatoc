@@ -104,7 +104,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
 
         [HttpGet]
-        public IActionResult Search(string key)
+        public IActionResult List(string key)
         {
             List<StudentBLL> list = studbll.Search(key);
 

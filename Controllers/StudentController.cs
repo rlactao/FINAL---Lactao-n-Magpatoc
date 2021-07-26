@@ -23,6 +23,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 
             return View(list);
         }
+
         [HttpPost]
         public IActionResult Home(StudentAccountBLL obj) 
         {
@@ -101,17 +102,16 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 
             return RedirectToAction("List", "Student");
         }
-        //public IActionResult Search()
-        // {
-        //    List<StudentBLL> view = studbll.GetAll();
 
-       //     return View(view);
-       // }
-        //[HttpGet]
-        //public IActionResult Search(StudentBLL obj)
-       // {
-       //    StudentBLL obj =  studbll.Get(obj)
-       // }
-        
+        [HttpGet]
+        public IEnumerable<string> Search()
+        {
+            return new string keyword;
+        }
+
+        public void Search([FromBody] string value)
+        {
+
+        }
     }
 }

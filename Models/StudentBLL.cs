@@ -88,14 +88,14 @@ namespace Student.BusinessLogic
             dal.Close();
         }
 
-        public List<StudentBLL> Search(string key) 
+        public List<StudentBLL> GetAll(string key)
         {
             List<StudentBLL> list = new List<StudentBLL>();
 
             dal.Open();
             dal.SetSql("SELECT * FROM Students " +
                 "WHERE FirstName LIKE @key OR LastName LIKE @key ");
-            dal.AddParameter("@key", "%" + key);
+            dal.AddParameter("@key", "%" + key + "%");
 
             SqlDataReader dr = dal.GetReader();
 

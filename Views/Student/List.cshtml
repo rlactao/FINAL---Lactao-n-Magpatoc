@@ -1,5 +1,6 @@
 ﻿@model List<StudentBLL>
 
+
 <div style="display:inline">
     <a asp-controller="Student" asp-action="Add" class="btn btn-link fa-pull-left btn-sm ">
         Add Record
@@ -9,9 +10,9 @@
     </a>
 </div>
 <div>
-    <form method="get" asp-controller="Student" asp-action="Search">
-        <input type="search" placeholder="Enter Student name" value="" name="" style="width:300px;"/>
-        <button type="submit" class="btn btn-light btn-sm">Enter</button>
+    <form method="post" asp-controller="Student" asp-action="Search">
+        <input type="search" placeholder="Enter Student name" value="" id="key" name="key" style="width:300px;"/>
+        <input type="submit" value="Search">
     </form>
 </div>
     <br />

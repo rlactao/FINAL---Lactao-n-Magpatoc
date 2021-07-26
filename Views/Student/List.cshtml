@@ -11,7 +11,7 @@
 <div>
     <form method="get" asp-controller="Student" asp-action="Search">
         <input type="search" placeholder="Enter Student name" value="" name="" style="width:300px;"/>
-        <button type="submit" class="btn btn-light"></button>
+        <button type="submit" class="btn btn-light">Enter</button>
     </form>
 </div>
     <br />
@@ -35,9 +35,9 @@
                     <td>
                         <a asp-controller="Student" asp-action="Edit"
                            asp-route-id="@item.StudentID" class="btn btn-success btn-sm">Edit</a>
-                        <form asp-controller="Album" asp-action="Delete" method="post" style="display:inline">
+                        <form asp-controller="Student" asp-action="Delete" method="post" style="display:inline">
                             <input type="hidden" name="StudentID" value="@item.StudentID" />
-                            <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
+                            <button type="submit" class="btn btn- btn-sm"> Delete </button>
                         </form>
                     </td>
                 </tr>

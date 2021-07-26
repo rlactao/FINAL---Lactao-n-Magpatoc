@@ -38,7 +38,10 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
                 foreach (StudentAccountBLL item in account)
                 {
                     if (obj.Username.Equals(item.Username) && obj.Password.Equals(item.Password))
+                    {
                         valid = true;
+                        break;
+                    }
                     else
                         valid = false;
                 }

@@ -7,6 +7,7 @@ using Student.BusinessLogic;
 using Student.Account.BusinessLogic;
 using Layer.DataAccess;
 
+
 namespace FINAL___Lactao_n_Magpatoc.Controllers
 {
     public class StudentController : Controller
@@ -43,17 +44,17 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
                     }
                     else
                         valid = false;
-
                 }
 
                 if (valid)
                     return RedirectToAction("List", "Student");
                 else
-                    return RedirectToAction("Home", "Student");
+                    return View(obj);
+                    // show error message that it is wrong username/password??
             }
             else
             {
-                return RedirectToAction("Home", "Student");
+                return View(obj);
             }
         }
         public IActionResult Add()
@@ -88,12 +89,17 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Edit(StudentBLL model)
         {
-            model.Edit();
-
-            return RedirectToAction("List", "Student");
+            if (ModelState.IsValid)
+            {
+                model.Edit();
+                return RedirectToAction("List", "Student");
+            }
+            else
+            {
+                return View(model);
+            }
         }
      
         [HttpPost]

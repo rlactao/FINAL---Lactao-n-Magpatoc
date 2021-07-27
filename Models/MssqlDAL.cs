@@ -12,8 +12,9 @@ namespace Layer.DataAccess
 {
     class MssqlDAL
     {
-        private const string ConnectionString = @"Server=198.38.83.33;" 
-            + "Database=eisensy_csbintepro;UID=eisensy_student;PWD=Benilde@2020";
+        private const string ConnectionString = @"Server=LAPTOP-4PEMER5Q\MSSQLSERVER2021;" +
+            "Database=intepro;UID=MidMP;PWD=2021InteproBOLT";
+
 
         private SqlConnection cn = new SqlConnection(ConnectionString);
 

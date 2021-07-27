@@ -10,6 +10,7 @@ namespace Student.Account.BusinessLogic
 {
     public class StudentAccountBLL
     {
+
         [Required]
         public string Username { get; set; }
         [Required]
@@ -21,7 +22,7 @@ namespace Student.Account.BusinessLogic
         {
             List<StudentAccountBLL> list = new List<StudentAccountBLL>();
             dal.Open();
-            dal.SetSql("SELECT * FROM Accounts"); //pakimatch sa ginawa mo rae yung table name haha
+            dal.SetSql("SELECT * FROM UserAccounts"); //pakimatch sa ginawa mo rae yung table name haha
             SqlDataReader dr = dal.GetReader();
 
             while (dr.Read() == true)

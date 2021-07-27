@@ -1,17 +1,21 @@
 ﻿@model List<StudentBLL>
 
+
 <div style="display:inline">
     <a asp-controller="Student" asp-action="Add" class="btn btn-link fa-pull-left btn-sm ">
         Add Record
+    </a>
+    <a asp-controller="Student" asp-action="List" class="btn btn-link fa-pull-left btn-sm ">
+        Reset
     </a>
     <a asp-controller="Student" asp-action="Home" class="btn btn-link fa-pull-right btn-sm ">
         Logout
     </a>
 </div>
 <div>
-    <form method="get" asp-controller="Student" asp-action="Search">
-        <input type="search" placeholder="Enter Student name" value="" name="" style="width:300px;"/>
-        <input type="submit" value="" class="btn btn-light"
+    <form method="get" asp-controller="Student" asp-action="List">
+        <input type="search" placeholder="Enter Student name" value="" id="key" name="key" style="width:300px;"/>
+        <input type="submit" value="Search">
     </form>
 </div>
     <br />
@@ -35,9 +39,9 @@
                     <td>
                         <a asp-controller="Student" asp-action="Edit"
                            asp-route-id="@item.StudentID" class="btn btn-success btn-sm">Edit</a>
-                        <form asp-controller="Album" asp-action="Delete" method="post" style="display:inline">
+                        <form asp-controller="Student" asp-action="Delete" method="post" style="display:inline">
                             <input type="hidden" name="StudentID" value="@item.StudentID" />
-                            <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
+                            <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
                         </form>
                     </td>
                 </tr>

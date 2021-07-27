@@ -2,23 +2,31 @@
 
 
 <div style="display:inline">
-    <a asp-controller="Student" asp-action="Add" class="btn btn-link fa-pull-left btn-sm ">
-        Add Record
-    </a>
-    <a asp-controller="Student" asp-action="List" class="btn btn-link fa-pull-left btn-sm ">
+    <div class="float-left">
+        <a asp-controller="Student" asp-action="Add" class="btn btn-link btn-sm">
+            Add Record
+        </a>
+    </div>
+    @*<a asp-controller="Student" asp-action="List" class="btn btn-link fa-pull-left btn-sm ">
         Reset
-    </a>
-    <a asp-controller="Student" asp-action="Home" class="btn btn-link fa-pull-right btn-sm ">
-        Logout
-    </a>
+    </a>*@
+    <div class="float-right">
+        <a asp-controller="Student" asp-action="Home" class="btn btn-link btn-sm">
+            Logout
+        </a>
+    </div>
 </div>
-<div>
-    <form method="get" asp-controller="Student" asp-action="List">
+<br />
+<br />
+<div class="float-right">
+    <form method="get" asp-controller="Student" asp-action="List" style="right">
         <input type="search" placeholder="Enter Student name" value="" id="key" name="key" style="width:300px;"/>
         <input type="submit" value="Search">
+        <input type="submit" value="Clear Search"/>
     </form>
-</div>
-    <br />
+  </div>
+<br />
+<br/>
 <div class="container">
     <table class="table table-bordered table-sm">
         <thead class="thead-dark">
@@ -26,7 +34,7 @@
                 <th scope="col">Student I.D</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
-                <th scope="col">Action </th>
+                <th scope="col"> </th>
             </tr>
         </thead>
         <tbody>

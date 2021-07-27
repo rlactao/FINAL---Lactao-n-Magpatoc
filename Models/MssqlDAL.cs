@@ -12,11 +12,11 @@ namespace Layer.DataAccess
 {
     class MssqlDAL
     {
-        private const string ConnectionString = @"Server=DESKTOP-B4U7OC7\SQLEXPRESS;" +
-            "Database=db1;Integrated Security=SSPI";
+        //private const string ConnectionString = @"Server=DESKTOP-B4U7OC7\SQLEXPRESS;" +
+        //    "Database=db1;Integrated Security=SSPI";
 
-        // private const string ConnectionString = @"Server=LAPTOP-4PEMER5Q\MSSQLSERVER2021;" +
-        //    "Database=intepro;UID=MidMPtry;PWD=2021InteproBOLT";
+        private const string ConnectionString = @"Server=LAPTOP-4PEMER5Q\MSSQLSERVER2021;" +
+           "Database=intepro;UID=MidMPtry;PWD=2021InteproBOLT";
 
         private SqlConnection cn = new SqlConnection(ConnectionString);
 

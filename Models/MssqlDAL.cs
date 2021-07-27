@@ -16,7 +16,7 @@ namespace Layer.DataAccess
         //    "Database=db1;Integrated Security=SSPI";
 
         private const string ConnectionString = @"Server=LAPTOP-4PEMER5Q\MSSQLSERVER2021;" +
-           "Database=intepro;UID=MidMPtry;PWD=2021InteproBOLT";
+           "Database=intepro;Integrated Security=SSPI";
 
         private SqlConnection cn = new SqlConnection(ConnectionString);
 

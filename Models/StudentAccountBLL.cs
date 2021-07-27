@@ -16,6 +16,8 @@ namespace Student.Account.BusinessLogic
         [Required]
         public string Password { get; set; }
 
+
+        
         MssqlDAL dal = new MssqlDAL();
 
         public List<StudentAccountBLL> GetAll()

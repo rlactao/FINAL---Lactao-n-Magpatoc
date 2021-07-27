@@ -7,7 +7,7 @@
 
 <form asp-controller="Student" asp-action="Home" method="post">
     <div class="form-group">
-        <label for="Username">User name</label>
+        <label for="uname">User name</label>
         <input type="text" class="form-control" value="@Model.Username" placeholder="Enter username" name="Username">
         <span class="text-danger" asp-validation-for="Username"></span>
     </div>

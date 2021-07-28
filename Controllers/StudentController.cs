@@ -30,32 +30,45 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         {
             if (ModelState.IsValid)
             {
-                StudentAccountBLL studAcc = new StudentAccountBLL();
-                List<StudentAccountBLL> account = studAcc.GetAll();
-
-                bool valid = false;
-
-                foreach (StudentAccountBLL item in account)
-                {
-                    if (obj.Username.Equals(item.Username) && obj.Password.Equals(item.Password))
-                    {
-                        valid = true;
-                        break;
-                    }
-                    else
-                        valid = false;
-                }
-
-                if (valid)
-                    return RedirectToAction("List", "Student");
-                else
-                    return View(obj);
-                    // show error message that it is wrong username/password??
+                return RedirectToAction("List", "Student");
             }
             else
             {
                 return View(obj);
             }
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    StudentAccountBLL studAcc = new StudentAccountBLL();
+            //    List<StudentAccountBLL> account = studAcc.GetAll();
+
+            //    bool valid = false;
+
+            //    foreach (StudentAccountBLL item in account)
+            //    {
+            //        if (obj.Username.Equals(item.Username) && obj.Password.Equals(item.Password))
+            //        {
+            //            valid = true;
+            //            break;
+            //        }
+            //        else
+            //            valid = false;
+            //    }
+
+            //    if (valid)
+            //        return RedirectToAction("List", "Student");
+            //    else
+            //    {
+            //        return View(obj);
+            //        // show error message that it is wrong username/password??
+            //    }
+            //}
+            //else
+            //{
+            //    return View(obj);
+            //}
+
         }
         public IActionResult Add()
         {

@@ -22,27 +22,27 @@ namespace Student.Account.BusinessLogic
 
         MssqlDAL dal = new MssqlDAL();
 
-        //public List<StudentAccountBLL> GetAll()
-        //{
-        //    List<StudentAccountBLL> list = new List<StudentAccountBLL>();
-        //    dal.Open();
-        //    dal.SetSql("SELECT * FROM UserAccounts"); 
-        //    SqlDataReader dr = dal.GetReader();
+        public List<StudentAccountBLL> GetAll()
+        {
+            List<StudentAccountBLL> list = new List<StudentAccountBLL>();
+            dal.Open();
+            dal.SetSql("SELECT * FROM UserAccounts");
+            SqlDataReader dr = dal.GetReader();
 
-        //    while (dr.Read() == true)
-        //    {
-        //        StudentAccountBLL acct = new StudentAccountBLL();
-        //        acct.Username = dr["Username"].ToString();
-        //        acct.Password = dr["Password"].ToString();
-                
-        //        list.Add(acct);
-        //    }
+            while (dr.Read() == true)
+            {
+                StudentAccountBLL acct = new StudentAccountBLL();
+                acct.Username = dr["Username"].ToString();
+                acct.Password = dr["Password"].ToString();
 
-        //    dr.Close();
-        //    dal.Close();
+                list.Add(acct);
+            }
 
-        //    return list;
-        //}
+            dr.Close();
+            dal.Close();
+
+            return list;
+        }
 
         public bool TryValidate()
         {

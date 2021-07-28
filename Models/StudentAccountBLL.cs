@@ -5,39 +5,74 @@ using System.Threading.Tasks;
 using Layer.DataAccess;
 using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
+using FINAL___Lactao_n_Magpatoc.Models;
 
 namespace Student.Account.BusinessLogic
 {
-    public class StudentAccountBLL
+    public class StudentAccountBLL : IValidatableObject
     {
 
         [Required]
         public string Username { get; set; }
+
         [Required]
         public string Password { get; set; }
 
+
         MssqlDAL dal = new MssqlDAL();
 
-        public List<StudentAccountBLL> GetAll()
+        //public List<StudentAccountBLL> GetAll()
+        //{
+        //    List<StudentAccountBLL> list = new List<StudentAccountBLL>();
+        //    dal.Open();
+        //    dal.SetSql("SELECT * FROM UserAccounts");
+        //    SqlDataReader dr = dal.GetReader();
+
+        //    while (dr.Read() == true)
+        //    {
+        //        StudentAccountBLL acct = new StudentAccountBLL();
+        //        acct.Username = dr["Username"].ToString();
+        //        acct.Password = dr["Password"].ToString();
+
+        //        list.Add(acct);
+        //    }
+
+        //    dr.Close();
+        //    dal.Close();
+
+        //    return list;
+        //}
+
+        public bool TryValidate()
         {
-            List<StudentAccountBLL> list = new List<StudentAccountBLL>();
             dal.Open();
-            dal.SetSql("SELECT * FROM UserAccounts"); 
-            SqlDataReader dr = dal.GetReader();
+            dal.SetSql("SELECT * FROM UserAccounts WHERE Username = @a COLLATE SQL_Latin1_General_CP1_CS_AS " +
+                        "AND Password = @b COLLATE SQL_Latin1_General_CP1_CS_AS");
+            dal.AddParameter("@a", Username);
+            dal.AddParameter("@b", Password);
+            DataTable dta = dal.GetData();
 
-            while (dr.Read() == true)
+            if (dta.Rows.Count == 1)
             {
-                StudentAccountBLL acct = new StudentAccountBLL();
-                acct.Username = dr["Username"].ToString();
-                acct.Password = dr["Password"].ToString();
-                
-                list.Add(acct);
+                dal.Close();
+                return true;
             }
+            else
+            {
+                dal.Close();
+                return false;
+            }
+        }
 
-            dr.Close();
-            dal.Close();
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var property = new[] { "Username" };
 
-            return list;
+            if (this.TryValidate() == false)
+            {
+                yield return new ValidationResult("Wrong Username/Password", property);
+            }
         }
 
         //[HttpPost]

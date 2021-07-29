@@ -68,8 +68,8 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
             //{
             //    return View(obj);
             //}
-
         }
+
         public IActionResult Add()
         {
             return View(new StudentBLL());

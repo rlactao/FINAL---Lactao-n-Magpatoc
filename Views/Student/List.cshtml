@@ -1,6 +1,5 @@
 ﻿@model List<StudentBLL>
 
-
 <div style="display:inline">
     <div class="float-left">
         <a asp-controller="Student" asp-action="Add" class="btn btn-link btn-sm">
@@ -41,7 +40,7 @@
                     <td>@item.StudentID</td>
                     <td>@item.Firstname</td>
                     <td>@item.Lastname</td>
-                    <td >
+                    <td>
                             <a asp-controller="Student" asp-action="Edit"
                                asp-route-id="@item.StudentID" class="btn btn-success btn-sm">Edit</a>
                             <form asp-controller="Student" asp-action="Delete" method="post" style="display:inline">

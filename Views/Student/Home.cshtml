@@ -4,7 +4,7 @@
 <br />
 
 <div class="container">
-    <form asp-controller="Student" asp-action="Home" method="post" style="width:750px;">
+    <form asp-controller="Student" asp-action="Home" method="post">
         <div class="form-group">
             <label for="Username">User name * </label>
             <input type="text" class="form-control" value="@Model.Username" placeholder="Enter username" name="Username">
@@ -16,7 +16,7 @@
             <span class="text-danger" asp-validation-for="Password"></span>
         </div>
         <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-success">Login</button>
+            <button type="submit" class="btn btn-primary">Login</button>
         </div>
 
     </form>

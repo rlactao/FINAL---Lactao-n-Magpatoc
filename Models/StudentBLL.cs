@@ -12,11 +12,13 @@ namespace Student.BusinessLogic
     {
 
         public int StudentID { get; set; }
-       
+
+        [Required]
         [MinLength(2, ErrorMessage = "Last name should not be less than 2 characters")]
         [StringLength(50, ErrorMessage = "Last name must be not more than 50 characters")]
         public string Lastname { get; set; }
 
+        [Required]
         [MinLength(2, ErrorMessage = "First name should not be less than 2 characters")]
         [StringLength(50, ErrorMessage = "First name must be not more than 50 characters")]
         public string Firstname { get; set; }

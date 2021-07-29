@@ -1,16 +1,18 @@
 ﻿@model StudentBLL
+    <br />
+    <br />
 
-<a asp-controller="Student" asp-action="List">Back</a>
-<br />
-<form asp-controller="Student" asp-action="Add" method="post">
-    First Name
-    <input type="text" class="form-control" name="Firstname" value="@Model.Firstname" placeholder="Enter firstname" />
-    <span class="text-danger" asp-validation-for="Firstname"></span><br />
-    Last Name
-    <input type="text" class="form-control" name="Lastname" value="@Model.Lastname" placeholder="Enter lastname" />
-    <span class="text-danger" asp-validation-for="Lastname"></span><br />
-    <div class="col-md-12 text-center">
-        <button type="submit" class="btn btn-success">Add Record</button>
-        <a asp-controller="Student" asp-action="List" class="btn btn-secondary">Cancel</a>
-    </div>
-</form>
+    <a asp-controller="Student" asp-action="List">Back</a>
+    <br />
+    <form asp-controller="Student" asp-action="Add" method="post">
+        First Name
+        <input type="text" class="form-control" name="Firstname" value="@Model.Firstname" placeholder="Enter firstname" />
+        <span class="text-danger" asp-validation-for="Firstname"></span><br />
+        Last Name
+        <input type="text" class="form-control" name="Lastname" value="@Model.Lastname" placeholder="Enter lastname" />
+        <span class="text-danger" asp-validation-for="Lastname"></span><br />
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-success">Add Record</button>
+            <a asp-controller="Student" asp-action="List" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>

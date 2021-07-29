@@ -11,6 +11,8 @@ namespace Student.BusinessLogic
     public class StudentBLL 
     {
 
+        public int StudentID { get; set; }
+
         [Required]
         [MinLength(2, ErrorMessage = "Last name should not be less than 2 characters")]
         [StringLength(50, ErrorMessage = "Last name must be not more than 50 characters")]

@@ -10,10 +10,15 @@ namespace Student.BusinessLogic
 {
     public class StudentBLL 
     {
-        public int StudentID { get; set; }
-        
+
+        [Required]
+        [MinLength(2, ErrorMessage = "Last name should not be less than 2 characters")]
+        [StringLength(50, ErrorMessage = "Last name must be not more than 50 characters")]
         public string Lastname { get; set; }
-        
+
+        [Required]
+        [MinLength(2, ErrorMessage = "First name should not be less than 2 characters")]
+        [StringLength(50, ErrorMessage = "First name must be not more than 50 characters")]
         public string Firstname { get; set; }
 
         private MssqlDAL dal = new MssqlDAL();
@@ -47,6 +52,7 @@ namespace Student.BusinessLogic
             dal.Close();
             return list;
         }
+
         public StudentBLL Get(int id)
         {
             StudentBLL s = new StudentBLL();
@@ -81,13 +87,13 @@ namespace Student.BusinessLogic
         public void Delete()
         {
             dal.Open();
-            dal.SetSql("DELETE Students WHERE StudentID = @is");
+            dal.SetSql("DELETE Students WHERE StudentID = @id");
             dal.AddParameter("@id", StudentID);
             dal.Execute();
             dal.Close();
         }
 
-        public List<StudentBLL> Search(string key) 
+        public List<StudentBLL> Search(string key)
         {
             List<StudentBLL> list = new List<StudentBLL>();
 
@@ -113,5 +119,8 @@ namespace Student.BusinessLogic
 
             return list;
         }
+
+
     }
+
 }

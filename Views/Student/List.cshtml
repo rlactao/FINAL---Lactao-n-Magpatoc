@@ -1,28 +1,36 @@
 ﻿@model List<StudentBLL>
 
 <div style="display:inline">
-    <a asp-controller="Student" asp-action="Add" class="btn btn-link fa-pull-left btn-sm ">
-        Add Record
-    </a>
-    <a asp-controller="Student" asp-action="Home" class="btn btn-link fa-pull-right btn-sm ">
-        Logout
-    </a>
+    <div class="float-left">
+        <a asp-controller="Student" asp-action="Add" class="btn btn-link btn-sm">
+            Add Record
+        </a>
+    </div>
+    <div class="float-right">
+        <a asp-controller="Student" asp-action="Home" class="btn btn-link btn-sm">
+            Logout
+        </a>
+    </div>
 </div>
-<div>
-    <form method="get" asp-controller="Student" asp-action="Search">
-        <input type="search" placeholder="Enter Student name" value="" name="" style="width:300px;"/>
-        <button type="submit" class="btn btn-light"></button>
+<br />
+<br />
+<div class="float-right">
+    <form method="get" asp-controller="Student" asp-action="List" style="right:auto">
+        <input type="search" placeholder="Enter Student name" value="" id="key" name="key" style="width:300px;"/>
+        <input type="submit" value="Search">
+        <input type="submit" value="Clear Search"/>
     </form>
-</div>
-    <br />
-<div class="container">
+  </div>
+<br />
+<br/>
+<div class="container" >
     <table class="table table-bordered table-sm">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Student I.D</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Action </th>
+                <th scope="col" class="text-center">Student I.D</th>
+                <th scope="col" class="text-center">First Name</th>
+                <th scope="col" class="text-center">Last Name</th>
+                <th scope="col"> </th>
             </tr>
         </thead>
         <tbody>
@@ -33,12 +41,12 @@
                     <td>@item.Firstname</td>
                     <td>@item.Lastname</td>
                     <td>
-                        <a asp-controller="Student" asp-action="Edit"
-                           asp-route-id="@item.StudentID" class="btn btn-success btn-sm">Edit</a>
-                        <form asp-controller="Album" asp-action="Delete" method="post" style="display:inline">
-                            <input type="hidden" name="StudentID" value="@item.StudentID" />
-                            <button type="submit" class="btn btn-secondary btn-sm"> Delete </button>
-                        </form>
+                            <a asp-controller="Student" asp-action="Edit"
+                               asp-route-id="@item.StudentID" class="btn btn-success btn-sm">Edit</a>
+                            <form asp-controller="Student" asp-action="Delete" method="post" style="display:inline">
+                                <input type="hidden" name="StudentID" value="@item.StudentID" />
+                                <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+                            </form>
                     </td>
                 </tr>
             }

@@ -1,23 +1,23 @@
 ﻿@model StudentAccountBLL
 
-<div class="container">
-    <h3 class="text-success">Welcome students!</h3>
-</div>
+<br />
 <br />
 
-<form asp-controller="Student" asp-action="Home" method="post">
-    <div class="form-group">
-        <label for="uname">User name</label>
-        <input type="text" class="form-control" value="@Model.Username" placeholder="Enter username" name="Username">
-        <span class="text-danger" asp-validation-for="Username"></span>
-    </div>
-    <div class="form-group">
-        <label for="Password">Password</label>
-        <input type="password" class="form-control" value="@Model.Password" placeholder="Enter password" name="Password">
-        <span class="text-danger" asp-validation-for="Password"></span>
-    </div>
-    <div class="col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">Login</button>
-    </div>
-</form>
+<div class="container">
+    <form asp-controller="Student" asp-action="Home" method="post">
+        <div class="form-group">
+            <label for="Username">User name * </label>
+            <input type="text" class="form-control" value="@Model.Username" placeholder="Enter username" name="Username">
+            <span class="text-danger" asp-validation-for="Username"></span>
+        </div>
+        <div class="form-group">
+            <label for="Password">Password *</label>
+            <input type="password" class="form-control" value="@Model.Password" placeholder="Enter password" name="Password">
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+</div>
 

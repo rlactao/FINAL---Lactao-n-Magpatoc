@@ -16,11 +16,13 @@ namespace Student.BusinessLogic
         [Required]
         [MinLength(2, ErrorMessage = "Last name should not be less than 2 characters")]
         [StringLength(50, ErrorMessage = "Last name must be not more than 50 characters")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Last name must be letters only")]
         public string Lastname { get; set; }
 
         [Required]
         [MinLength(2, ErrorMessage = "First name should not be less than 2 characters")]
         [StringLength(50, ErrorMessage = "First name must be not more than 50 characters")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "First name must be letters only")]
         public string Firstname { get; set; }
 
         private MssqlDAL dal = new MssqlDAL();

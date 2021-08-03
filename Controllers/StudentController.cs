@@ -12,14 +12,13 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
 {
     public class StudentController : Controller
     {
-        private StudentBLL studbll = new StudentBLL();
-        private StudentAccountBLL studAcctBLL = new StudentAccountBLL();
         public IActionResult Home()
         {
             return View(new StudentAccountBLL());
         }
         public IActionResult List()
         {
+            StudentBLL studbll = new StudentBLL();
             List<StudentBLL> list = studbll.GetAll();
 
             return View(list);
@@ -126,6 +125,7 @@ namespace FINAL___Lactao_n_Magpatoc.Controllers
         [HttpGet]
         public IActionResult List(string key)
         {
+            StudentBLL studbll = new StudentBLL();
             List<StudentBLL> list = studbll.Search(key);
 
             return View(list);
